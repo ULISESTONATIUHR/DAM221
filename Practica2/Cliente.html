@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Caja Registradora</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente</title>
     <style>
       .contenedor {
     width: 800px;
@@ -17,86 +18,20 @@
 }
     </style>
 </head>
-
 <body>
-<div class="contenedor">
-    <div class="seccion">
-     <center><h1>CAFETERÍA</h1></center>
-    <h1>Caja Registradora</h1>
 
-    <label>Producto:</label>
-    <input type="text" id="producto">
+    <div class="contenedor">
 
-    <br><br>
-
-    <label>Precio:</label>
-    <input type="number" id="precio">
-
-    <br><br>
-
-    <button onclick="agregarPedido()">Agregar pedido</button>
-
-    <h2>Lista de pedidos</h2>
-
-    <ul id="listaPedidos"></ul>
-
-    <h2>Total acumulado: $<span id="total">0</span></h2>
-    </div>
-</div>
-
-    <script>
-
-        const pedidos = [];
-        let total = 0;
-
-        function agregarPedido() {
-
-            const producto = document.getElementById("producto").value;
-            const precio = Number(document.getElementById("precio").value);
-
-            if (producto == "" || precio <= 0) {
-                alert("Escribe un producto y un precio válido");
-                return;
-            }
-
-            pedidos.push(producto);
-            total = total + precio;
-
-            mostrarPedidos();
-
-            document.getElementById("producto").value = "";
-            document.getElementById("precio").value = "";
-        }
-
-
-        function mostrarPedidos() {
-
-            const lista = document.getElementById("listaPedidos");
-
-            lista.innerHTML = "";
-
-            for (let i = 0; i < pedidos.length; i++) {
-
-                const elemento = document.createElement("li");
-
-                elemento.textContent = pedidos[i];
-
-                lista.appendChild(elemento);
-            }
-
-            document.getElementById("total").textContent = total;
-        }
-
-    </script>
-<div class="contenedor">
-
-       
+        <h1>CAFETERÍA</h1>
 
 
         
         <div class="seccion">
 
             <h2>Cliente</h2>
+            <button onclick="mostrarPromociones()">
+                Mostrar promociones
+            </button>
 
             <button onclick="consultarProductos()">
                 Consultar productos
@@ -115,12 +50,83 @@
             </button>
 
         </div>
+
+
+        
+        <div class="seccion">
+
+            <h2>Caja</h2>
+
+            <button onclick="consultarPedidoCaja()">
+                Consultar pedido
+            </button>
+
+            <button onclick="realizarPago()">
+                Realizar pago
+            </button>
+
+        </div>
+
+
+        <!-- CONTENEDOR DE COCINA -->
+        <div class="seccion">
+
+            <h2>Cocina</h2>
+
+            <button onclick="mostrarProductosBaratos()"> Productos baratos
+            </button>
+
+            <button onclick="mostrarProductosCaros()">
+             Productos caros
+            </button>
+
+            <button onclick="mostrarBebidas()">
+             Bebidas
+            </button>  
+
+            <button onclick="mostrarPostres()">
+             Postres
+            </button>
+
+            <button onclick="agregar()">
+                Agregar producto
+            </button>
+
+            <button onclick="mostrar()">
+                Listar productos
+            </button>
+
+            <button onclick="editarProducto()">
+                Editar producto
+            </button>
+
+            <button onclick="eliminarProducto()">
+                Eliminar producto
+            </button>
+
+        </div>
+
+
+        <!-- RESULTADO -->
         <div id="resultado">
 
-        </div>
+            <h2>Bienvenido</h2>
+
+            <p>
+                Selecciona una opción.
+            </p>
 
         </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="cocina.js"></script>
+    <script src="caja.js"></script>
     <script src="Menu.js"></script>
 
 </body>
+
 </html>
