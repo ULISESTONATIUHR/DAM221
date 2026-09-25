@@ -1,4 +1,22 @@
+
 let pedidos = [];
+
+
+function actualizarEstadoPedido(numeroPedido, nuevoEstado) {
+
+    let posicion = numeroPedido - 1;
+
+    pedidos[posicion].estado = nuevoEstado;
+
+    document.getElementById("resultado").innerHTML = `
+        <h2>Estado de tu pedido</h2>
+
+        <p><strong>Pedido:</strong> #${numeroPedido}</p>
+        <p><strong>Cliente:</strong> ${pedidos[posicion].cliente}</p>
+        <p><strong>Producto:</strong> ${pedidos[posicion].producto}</p>
+        <p><strong>Estado:</strong> ${pedidos[posicion].estado}</p>
+    `;
+}
 
 function mostrarPromociones() {
     let contenido = "<h2>Promociones</h2>";
@@ -21,26 +39,21 @@ function consultarProductos() {
 
     let contenido = "<h2>Productos disponibles</h2>";
 
-
-    listarProductos().forEach((producto) => { 
+    listarProductos().forEach((producto) => {
         if (producto.disponible === true) {
             contenido += `
                 <p>
                     <strong>${producto.id}. ${producto.nombre}</strong>
                     - $${producto.precio}
                     - Cantidad disponible: ${producto.cantidad}
+                    - Estado: ${producto.estado}
                 </p>
             `;
-
         }
-        
     });
 
     document.getElementById("resultado").innerHTML = contenido;
-    
-    
 }
-
 
 function consultarPedidos() {
 
@@ -58,10 +71,9 @@ function consultarPedidos() {
         <p><strong>Producto:</strong> ${pedido.producto}</p>
         <p><strong>Precio:</strong> $${pedido.precio}</p>
         <p><strong>Cantidad:</strong> ${pedido.cantidad}</p>
+        <p><strong>Estado:</strong> ${pedido.estado}</p>
     `;
 }
-
-
 function crearPedido() {
 
     let cliente = prompt("Ingresa el nombre del cliente:");
@@ -73,13 +85,11 @@ function crearPedido() {
     // Llamamos a la función de Cocina
     let producto = listarProductos().find(p => p.id == numeroProducto);
 
-    
     if (!producto) {
         alert("Producto no encontrado");
         return;
     }
 
-    
     if (cantidad <= 0 || cantidad > producto.cantidad) {
         alert("Cantidad no disponible");
         return;
@@ -91,15 +101,17 @@ function crearPedido() {
     // Actualizamos si el producto sigue disponible
     producto.disponible = producto.cantidad > 0;
 
-    
     let pedido = {
         cliente: cliente,
         producto: producto.nombre,
         precio: producto.precio,
-        cantidad: cantidad
+        cantidad: cantidad,
+        estado: "Recibido"
     };
 
     pedidos.push(pedido);
+
+    let numeroPedido = pedidos.length;
 
     document.getElementById("resultado").innerHTML = `
         <h2>Pedido creado</h2>
@@ -109,12 +121,19 @@ function crearPedido() {
         <p><strong>Precio:</strong> $${producto.precio}</p>
         <p><strong>Cantidad:</strong> ${cantidad}</p>
         <p><strong>Cantidad restante:</strong> ${producto.cantidad}</p>
+        <p><strong>Estado:</strong> ${pedido.estado}</p>
     `;
 
     console.log(`Pedido creado para ${cliente}`);
+
+    prepararCafe(producto.nombre, function(nuevoEstado) {
+        actualizarEstadoPedido(numeroPedido, nuevoEstado);
+    })
+    .catch(error => {
+        actualizarEstadoPedido(numeroPedido, "Cancelado");
+        console.log(error);
+    });
 }
-
-
 function listarPedidos() {
 
     let contenido = "<h2>Lista de Pedidos</h2>";
@@ -129,6 +148,7 @@ function listarPedidos() {
                 <p>Producto: ${pedido.producto}</p>
                 <p>Precio: $${pedido.precio}</p>
                 <p>Cantidad: ${pedido.cantidad}</p>
+                <p><strong>Estado:</strong> ${pedido.estado}</p>
             </div>
         `;
 
@@ -136,4 +156,3 @@ function listarPedidos() {
 
     document.getElementById("resultado").innerHTML = contenido;
 }
-
