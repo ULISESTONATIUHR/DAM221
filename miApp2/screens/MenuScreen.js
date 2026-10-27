@@ -19,15 +19,31 @@ export default function MenuScreen() {
         case 'safe': 
             return <SafeScreen />;
         case 'menu':''
+        
             default:
                  return (
                    <View style={styles.container}>
                     <Text>Menu de Practicas</Text>
                     <Button title="Practica :Tarjetas" onPress={ ()=>setScreen('tarjetas')}></Button>
                     <Button title="Practica :SafeAreaView" onPress={ ()=>setScreen('safe')}></Button>
-                    <Button title="Practica :Pressable"  ></Button>
+                    <Button title="Practica :Pressable" onPress={ ()=>setScreen('Pressable')}></Button>
+                    <Button title="Practica :FlatList" onPress={ ()=>setScreen('FlatList')}></Button>
+                    <Button title="Practica :ImageBackground" onPress={ ()=>setScreen('ImageBackground')}></Button>
+                    <Button title="Practica :Modal" onPress={ ()=>setScreen('Modal')}></Button>
+                    <Button title="Regresar" onPress={ ()=>setScreen('menu')}></Button>
+                    <Button title="Practica :ActivityIndicator" onPress={ ()=>setScreen('ActivityIndicator')}></Button>
                    </View>
                 );
+        case 'Pressable':
+          return <Pressable />;
+        case 'FlatList':
+          return <FlatList />;
+        case 'ImageBackground':
+          return <ImageBackground />;
+        case 'Modal ':
+          return <Modal />;
+        case 'ActivityIndicator':
+          return <ActivityIndicator />;
 
 }
 }
