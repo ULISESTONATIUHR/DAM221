@@ -44,7 +44,7 @@ export default function SafeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffff',
+    backgroundColor: '#3d45e9',
     padding: 20,
   },
   titulo:{
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   reproductor:{
-    backgroundColor: '#c6131300',
+    backgroundColor: 'white',
     padding: 20,
     borderRadius: 15,
     alignItems: 'center'
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   tarjeta:{
-    backgroundColor: 'blue',
+    backgroundColor: 'white',
     padding: 20,
     marginBottom: 10,
     borderRadius: 15,
