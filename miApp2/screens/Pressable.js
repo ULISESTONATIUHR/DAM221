@@ -5,7 +5,7 @@ import { StyleSheet, View, text } from 'react-native';
 
 
 /*2.Zona Render o Main*/
-export default function SafeScreen() {
+export default function Pressable() {
   return (
     <View style={styles.container}>
       
