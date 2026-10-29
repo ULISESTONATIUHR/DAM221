@@ -4,7 +4,7 @@ import { StyleSheet, View, Text, Button} from 'react-native';
 import { useState} from 'react';
 import TarjetasScreen from './TarjetasScreen';
 import SafeScreen from './SafeScreen';
-import Pressable from './Pressable';
+import PressableScreen from './PressableScreen';
 import Modal from './Modal';
 
 
@@ -21,8 +21,9 @@ export default function MenuScreen() {
             return <TarjetasScreen />;
         case 'safe': 
             return <SafeScreen />;
+            
         case 'Pressable':
-          return <Pressable />;
+          return <PressableScreen/>;
         case 'FlatList':
           return <FlatList />;
         case 'ImageBackground':
