@@ -10,7 +10,7 @@ export default function TexttInput(){
     const [comentario, setComentario] = useState('');
 
     const alertaSimple = () => {
-        Alert.alert('Holi ', 'Alerta simple')
+        Alert.alert('Holo:)', 'Alerta simple')
     }
 
     const alertaDosBotones = () => {
