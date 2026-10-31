@@ -6,6 +6,7 @@ import TarjetasScreen from './TarjetasScreen';
 import SafeScreen from './SafeScreen';
 import PressableScreen from './PressableScreen';
 import Modal from './Modal';
+import TexttInput from './TexttInput';
 
 
 
@@ -32,6 +33,8 @@ export default function MenuScreen() {
           return <Modal />;
         case 'ActivityIndicator':
           return <ActivityIndicator />;
+        case 'TexttInput':
+          return <TexttInput />;
           case 'menu':''
            default:
                  return (
@@ -40,6 +43,7 @@ export default function MenuScreen() {
                     <Button title="Practica :Tarjetas" onPress={ ()=>setScreen('tarjetas')}></Button>
                     <Button title="Practica :SafeAreaView" onPress={ ()=>setScreen('safe')}></Button>
                     <Button title="Practica :Pressable" onPress={ ()=>setScreen('Pressable')}></Button>
+                    <Button title="Practica :TexttInput" onPress={ ()=>setScreen('TexttInput')}></Button>
                     <Button title="Practica :FlatList" onPress={ ()=>setScreen('FlatList')}></Button>
                     <Button title="Practica :ImageBackground" onPress={ ()=>setScreen('ImageBackground')}></Button>
                     <Button title="Practica :Modal" onPress={ ()=>setScreen('Modal')}></Button>
