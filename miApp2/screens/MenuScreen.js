@@ -7,6 +7,7 @@ import SafeScreen from './SafeScreen';
 import PressableScreen from './PressableScreen';
 import Modal from './Modal';
 import TexttInput from './TexttInput';
+import FlattList from './FlattList';
 
 
 
@@ -25,8 +26,8 @@ export default function MenuScreen() {
             
         case 'Pressable':
           return <PressableScreen/>;
-        case 'FlatList':
-          return <FlatList />;
+        case 'FlattList':
+          return <FlattList />;
         case 'ImageBackground':
           return <ImageBackground />;
         case 'Modal ':
@@ -44,7 +45,7 @@ export default function MenuScreen() {
                     <Button title="Practica :SafeAreaView" onPress={ ()=>setScreen('safe')}></Button>
                     <Button title="Practica :Pressable" onPress={ ()=>setScreen('Pressable')}></Button>
                     <Button title="Practica :TexttInput" onPress={ ()=>setScreen('TexttInput')}></Button>
-                    <Button title="Practica :FlatList" onPress={ ()=>setScreen('FlatList')}></Button>
+                    <Button title="Practica :FlattList" onPress={ ()=>setScreen('FlattList')}></Button>
                     <Button title="Practica :ImageBackground" onPress={ ()=>setScreen('ImageBackground')}></Button>
                     <Button title="Practica :Modal" onPress={ ()=>setScreen('Modal')}></Button>
                     <Button title="Regresar" onPress={ ()=>setScreen('menu')}></Button>
