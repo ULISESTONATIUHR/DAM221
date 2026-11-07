@@ -1,70 +1,65 @@
-/*1.Zona Importaciones */
-
-import { StyleSheet, View, Text, Button} from 'react-native';
-import { useState} from 'react';
+import { StyleSheet, View, Text, Button, TextInput } from 'react-native';
+import { useState } from 'react';
 import TarjetasScreen from './TarjetasScreen';
 import SafeScreen from './SafeScreen';
 import PressableScreen from './PressableScreen';
-import Modal from './Modal';
 import TexttInput from './TexttInput';
 import FlattList from './FlattList';
 
 
-
-
-
-
-
-/*2.Zona Render o Main*/
+/* 2.- Zona render o Main*/
 export default function MenuScreen() {
-    const [screen,setScreen]=useState('menu');
+    const [screen,setScreen] = useState('Menu');
+
     switch(screen){
         case 'tarjetas': 
-            return <TarjetasScreen />;
+            return <TarjetasScreen/>;
         case 'safe': 
-            return <SafeScreen />;
-            
-        case 'Pressable':
-          return <PressableScreen/>;
-        case 'FlattList':
-          return <FlattList />;
-        case 'ImageBackground':
-          return <ImageBackground />;
-        case 'Modal ':
-          return <Modal />;
-        case 'ActivityIndicator':
-          return <ActivityIndicator />;
-        case 'TexttInput':
-          return <TexttInput />;
-          case 'menu':''
-           default:
-                 return (
-                   <View style={styles.container}>
-                    <Text>Menu de Practicas</Text>
-                    <Button title="Practica :Tarjetas" onPress={ ()=>setScreen('tarjetas')}></Button>
-                    <Button title="Practica :SafeAreaView" onPress={ ()=>setScreen('safe')}></Button>
-                    <Button title="Practica :Pressable" onPress={ ()=>setScreen('Pressable')}></Button>
-                    <Button title="Practica :TexttInput" onPress={ ()=>setScreen('TexttInput')}></Button>
-                    <Button title="Practica :FlattList" onPress={ ()=>setScreen('FlattList')}></Button>
-                    <Button title="Practica :ImageBackground" onPress={ ()=>setScreen('ImageBackground')}></Button>
-                    <Button title="Practica :Modal" onPress={ ()=>setScreen('Modal')}></Button>
-                    <Button title="Regresar" onPress={ ()=>setScreen('menu')}></Button>
-                    <Button title="Practica :ActivityIndicator" onPress={ ()=>setScreen('ActivityIndicator')}></Button>
-                   </View>
-                );
+            return <SafeScreen/>;
+        case 'pressable':
+            return <PressableScreen/>
+        case 'text':
+            return <TexttInput/>
+        case 'flat':
+            return <FlattList />      
+        case 'image':
+            return <ImageScreen/>
+        case 'modal':
+            return <ModalScreen/>
+        case 'activity':
+            return <ActivityScreen/>
+        case 'Menu':
+            default:
+            return (
+                <View style={styles.container}>
+                        <Text> Menu de Practicas </Text>
+                            <Button title= "Pract: Tarjetas" onPress={() => setScreen('tarjetas')}/>
+                            <Button title= "Pract: SafeAreaView" onPress={() => setScreen('safe')}/>
+                            <Button title= "Pract: Pressable & switch" onPress={() => setScreen('pressable')}/>
+                            <Button title= "Pract: TextInput & Alert" onPress={() => setScreen('text')}/>
+                            <Button title= "Pract: FlatList & SectionList: " onPress={() => setScreen('flat')}/>
+                            <Button title= "Pract: ImageBackgroung & SlapshScreen" onPress={() => setScreen('image')}/>
+                            <Button title= "Pract: Modal & Bottom sheet" onPress={() => setScreen('modal')}/>
+                            <Button title= "Pract: ActivityIndicator,KeyboardAvoidingView" onPress={() => setScreen('activity')}/>     
 
-}
-}
-/*3.Zona de estilos y posicionamientos */
+
+                </View>
+    );
+} 
+} 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'space-evenly',
-    alignContent: 'space-evenly ',
+    justifyContent: 'center',
   },
-  
+  button: {
+    margin: 10,
+    padding: 10,
+    color: 'white',
+  },
 
 });
