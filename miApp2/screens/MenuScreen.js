@@ -6,6 +6,9 @@ import PressableScreen from './PressableScreen';
 import TexttInput from './TexttInput';
 import FlattList from './FlattList';
 
+import ModalScreen from './Modal';
+import ActivitiScreen from './ActivitiScreen';
+
 
 /* 2.- Zona render o Main*/
 export default function MenuScreen() {
@@ -22,12 +25,11 @@ export default function MenuScreen() {
             return <TexttInput/>
         case 'flat':
             return <FlattList />      
-        case 'image':
-            return <ImageScreen/>
+       
         case 'modal':
             return <ModalScreen/>
         case 'activity':
-            return <ActivityScreen/>
+            return <ActivitiScreen/>
         case 'Menu':
             default:
             return (
@@ -38,7 +40,7 @@ export default function MenuScreen() {
                             <Button title= "Pract: Pressable & switch" onPress={() => setScreen('pressable')}/>
                             <Button title= "Pract: TextInput & Alert" onPress={() => setScreen('text')}/>
                             <Button title= "Pract: FlatList & SectionList: " onPress={() => setScreen('flat')}/>
-                            <Button title= "Pract: ImageBackgroung & SlapshScreen" onPress={() => setScreen('image')}/>
+                    
                             <Button title= "Pract: Modal & Bottom sheet" onPress={() => setScreen('modal')}/>
                             <Button title= "Pract: ActivityIndicator,KeyboardAvoidingView" onPress={() => setScreen('activity')}/>     
 

@@ -1,7 +1,7 @@
 //1. Zona importaciones
 import { StyleSheet, Text, View, Image, } from 'react-native';
 import MenuScreen from './screens/MenuScreen';
-import "./screens/MenuScreen"
+
 
 //2. Zona Render o Main
 export default function App() {
