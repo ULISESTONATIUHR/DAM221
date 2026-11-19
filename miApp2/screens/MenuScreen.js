@@ -7,6 +7,7 @@ import TexttInput from './TexttInput';
 import FlattList from './FlattList';
 
 import ModalScreen from './ModalScreen';
+
 import ActivitScreen from './ActivitScreen';
 
 
@@ -26,7 +27,7 @@ export default function MenuScreen() {
         case 'flat':
             return <FlattList />      
        
-        case 'modalscreen':
+        case 'Modalscreen':
             return <ModalScreen/>
         case 'activity':
             return <ActivitScreen/>
@@ -40,8 +41,7 @@ export default function MenuScreen() {
                             <Button title= "Pract: Pressable & switch" onPress={() => setScreen('pressable')}/>
                             <Button title= "Pract: TextInput & Alert" onPress={() => setScreen('text')}/>
                             <Button title= "Pract: FlatList & SectionList: " onPress={() => setScreen('flat')}/>
-                    
-                            <Button title= "Pract: Modal & Bottom sheet" onPress={() => setScreen('modalscreen')}/>
+                            <Button title= "Pract: Modal & Bottom sheet" onPress={() => setScreen('Modalscreen')}/>
                             <Button title= "Pract: ActivityIndicator,KeyboardAvoidingView" onPress={() => setScreen('activity')}/>     
 
 
