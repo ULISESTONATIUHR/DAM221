@@ -108,6 +108,8 @@ const estilos = StyleSheet.create({
   indicador: {
     margin: 16,
   },
+
+  
   texto: {
     textAlign: 'center',
   },
